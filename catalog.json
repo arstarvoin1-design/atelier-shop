@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": 1795040809151,
+    "category": "hoodie",
+    "name": "Крутой жирный барень",
+    "price": 10,
+    "fabric": "100% хлопок",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "desc": "жирни",
+    "photos": [
+      "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/site_1795040807181_0.jpg"
+    ]
+  }
+]
