@@ -16,6 +16,7 @@
       --accent: #ffffff;
       --accent-text: #0b0b0c;
       --success: #30d158;
+      --danger: #ff453a;
       --radius: 14px;
     }
 
@@ -25,37 +26,60 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.45;
-      padding-bottom: 90px;
+      padding-bottom: 96px;
     }
 
-    /* Шапка сайта */
+    /* Header */
     header {
       position: sticky; top: 0; z-index: 40;
-      background: rgba(11, 11, 12, 0.85);
+      background: rgba(11, 11, 12, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 14px 18px;
-      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      flex-wrap: wrap;
     }
     .brand {
-      font-size: 20px; font-weight: 800; letter-spacing: 0.22em;
+      font-size: 19px; font-weight: 800; letter-spacing: 0.22em;
       text-transform: uppercase;
     }
-    .header-actions { display: flex; gap: 10px; align-items: center; }
+    .header-actions { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
     .icon-btn {
       background: var(--surface-2); border: 1px solid var(--border);
-      color: var(--text); padding: 8px 12px; border-radius: 999px;
-      font-size: 13px; font-weight: 600; cursor: pointer;
-      display: flex; align-items: center; gap: 6px;
+      color: var(--text); padding: 7px 11px; border-radius: 999px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 5px; text-decoration: none;
+    }
+    .icon-btn.admin-on {
+      border-color: var(--success); color: var(--success);
     }
     .cart-badge {
       background: var(--accent); color: var(--accent-text);
       font-size: 11px; font-weight: 800; padding: 1px 6px; border-radius: 999px;
     }
 
-    /* Главный баннер */
+    /* Admin bar */
+    .admin-bar {
+      display: none; margin: 14px 16px 0; padding: 12px 16px;
+      background: rgba(48, 209, 88, 0.1); border: 1px solid rgba(48, 209, 88, 0.35);
+      border-radius: 14px; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap;
+    }
+    .admin-bar.visible { display: flex; }
+    .admin-bar-title { font-size: 13px; font-weight: 700; color: var(--success); }
+    .admin-bar-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-green {
+      background: var(--success); color: #0b0b0c; border: none;
+      padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer;
+    }
+    .btn-outline {
+      background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+      padding: 8px 12px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+
+    /* Hero */
     .hero {
-      margin: 16px; padding: 24px 20px;
+      margin: 16px; padding: 22px 18px;
       background: linear-gradient(135deg, #19191d 0%, #101012 100%);
       border: 1px solid var(--border); border-radius: 18px;
     }
@@ -64,16 +88,19 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 8px;
     }
-    .hero h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .hero p { font-size: 14px; color: var(--muted); max-width: 460px; }
+    .hero h1 { font-size: 23px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .hero p { font-size: 14px; color: var(--muted); max-width: 480px; }
+    .hero-bottom {
+      margin-top: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    }
     .promo-pill {
-      margin-top: 14px; display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 8px;
       background: var(--surface-2); border: 1px dashed var(--border);
-      padding: 6px 12px; border-radius: 10px; font-size: 12px;
+      padding: 7px 12px; border-radius: 10px; font-size: 12px;
     }
     .promo-pill code { color: var(--success); font-weight: 700; font-size: 13px; cursor: pointer; }
 
-    /* Фильтры категорий */
+    /* Filters */
     .filters {
       display: flex; gap: 8px; overflow-x: auto; padding: 4px 16px 14px;
       scrollbar-width: none;
@@ -88,7 +115,7 @@
       background: var(--accent); color: var(--accent-text); border-color: var(--accent);
     }
 
-    /* Сетка товаров */
+    /* Grid */
     .grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 16px; padding: 0 16px;
@@ -100,10 +127,14 @@
     }
     .card-img-wrap {
       position: relative; width: 100%; aspect-ratio: 4 / 4.3;
-      background: var(--surface-2); overflow: hidden;
+      background: var(--surface-2); overflow: hidden; cursor: pointer;
     }
     .card-img-wrap img {
       width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .no-photo-box {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 13px; letter-spacing: 0.15em; font-weight: 700;
     }
     .badge-fabric {
       position: absolute; top: 10px; left: 10px;
@@ -111,6 +142,21 @@
       border: 1px solid var(--border); padding: 4px 9px;
       border-radius: 8px; font-size: 11px; font-weight: 600;
     }
+    .gallery-nav {
+      position: absolute; bottom: 10px; left: 10px; right: 10px;
+      display: flex; justify-content: space-between; align-items: center;
+      pointer-events: none;
+    }
+    .gal-btn {
+      pointer-events: auto; width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(11, 11, 12, 0.78); border: 1px solid var(--border);
+      color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;
+    }
+    .gal-counter {
+      background: rgba(11, 11, 12, 0.78); border: 1px solid var(--border);
+      padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    }
+
     .card-body { padding: 14px; display: flex; flex-direction: column; flex: 1; }
     .card-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
     .card-desc { font-size: 13px; color: var(--muted); margin-bottom: 12px; flex: 1; }
@@ -135,9 +181,35 @@
     }
     .add-btn:active { opacity: 0.8; }
 
-    /* Выдвижная корзина и модальное окно */
+    .card-admin-actions {
+      display: flex; gap: 8px; margin-top: 8px;
+    }
+    .card-admin-actions button {
+      flex: 1; padding: 8px; border-radius: 8px; font-size: 12px; font-weight: 700;
+      cursor: pointer; border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+    }
+    .card-admin-actions .del-btn {
+      border-color: rgba(255, 69, 58, 0.4); color: var(--danger);
+    }
+
+    /* Footer / Manager banner */
+    .manager-banner {
+      margin: 26px 16px 0; padding: 18px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; display: flex; align-items: center;
+      justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    }
+    .manager-banner h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+    .manager-banner p { font-size: 13px; color: var(--muted); }
+    .manager-link {
+      background: #2aabee; color: #fff; text-decoration: none;
+      padding: 11px 18px; border-radius: 12px; font-size: 14px; font-weight: 700;
+      white-space: nowrap; display: inline-block;
+    }
+
+    /* Drawers & Modals */
     .overlay {
-      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.72);
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(4px); z-index: 60; display: none;
     }
     .overlay.open { display: block; }
@@ -173,12 +245,12 @@
       color: var(--text); font-weight: 700; cursor: pointer;
     }
 
-    .form-group { margin-top: 14px; }
-    .form-group label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-    .input {
+    .form-group { margin-top: 12px; }
+    .form-group label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+    .input, select.input, textarea.input {
       width: 100%; padding: 11px 12px; border-radius: 10px;
       background: var(--surface-2); border: 1px solid var(--border);
-      color: var(--text); font-size: 14px; outline: none;
+      color: var(--text); font-size: 14px; outline: none; font-family: inherit;
     }
     .promo-row { display: flex; gap: 8px; }
     .promo-apply {
@@ -203,10 +275,9 @@
       border: none; cursor: pointer;
     }
 
-    /* Таблица размеров */
     .modal {
       position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
-      width: calc(100% - 32px); max-width: 400px;
+      width: calc(100% - 28px); max-width: 440px; max-height: 90vh; overflow-y: auto;
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 20px; z-index: 80; display: none;
     }
@@ -215,12 +286,29 @@
     th, td { padding: 9px 6px; border-bottom: 1px solid var(--border); text-align: center; }
     th { color: var(--muted); font-weight: 600; }
 
-    /* Всплывающее уведомление */
+    .size-checks { display: flex; gap: 8px; flex-wrap: wrap; }
+    .size-check {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      padding: 6px 10px; border-radius: 8px; font-size: 13px; cursor: pointer;
+    }
+
+    /* Fullscreen Photo Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.94);
+      z-index: 95; display: none; align-items: center; justify-content: center; padding: 16px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 86vh; border-radius: 12px; object-fit: contain; }
+    .lightbox .close-btn { position: fixed; top: 16px; right: 16px; width: 38px; height: 38px; }
+
+    /* Toast */
     .toast {
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
       background: var(--accent); color: var(--accent-text);
       padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 700;
-      z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+      z-index: 110; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+      text-align: center; max-width: 90%;
     }
     .toast.show { opacity: 1; }
   </style>
@@ -230,19 +318,32 @@
   <header>
     <div class="brand">ATELIER</div>
     <div class="header-actions">
-      <button class="icon-btn" onclick="toggleSizeModal(true)">📏 Размеры</button>
+      <button class="icon-btn" onclick="openManager()">💬 Менеджер</button>
+      <button class="icon-btn" onclick="openModal('sizeModal')">📏 Размеры</button>
+      <button class="icon-btn" id="adminHeaderBtn" onclick="handleAdminHeaderClick()">⚙️ Админ</button>
       <button class="icon-btn" onclick="toggleCart(true)">
-        🛍 Корзина <span class="cart-badge" id="cartCount">0</span>
+        🛍 <span class="cart-badge" id="cartCount">0</span>
       </button>
     </div>
   </header>
+
+  <!-- Панель администратора (видна только после входа по токену) -->
+  <div class="admin-bar" id="adminBar">
+    <div class="admin-bar-title">🟢 Режим владельца (синхронизировано с ботом)</div>
+    <div class="admin-bar-btns">
+      <button class="btn-green" onclick="openModal('addProductModal')">➕ Добавить товар</button>
+      <button class="btn-outline" onclick="logoutAdmin()">Выйти</button>
+    </div>
+  </div>
 
   <section class="hero">
     <div class="hero-tag">DROP 01 • LIMITED COLLECTION</div>
     <h1>Базовый гардероб из плотного хлопка</h1>
     <p>Свободный оверсайз-крой, премиальный футер 460 г/м² и быстрая доставка СДЭК по всей России. Бесплатная доставка от 5 000 ₽.</p>
-    <div class="promo-pill">
-      Скидка 10% на первый заказ: <code id="promoBadge" onclick="copyPromo()">ATELIER10</code>
+    <div class="hero-bottom">
+      <div class="promo-pill">
+        Скидка 10% на первый заказ: <code onclick="copyPromo()">ATELIER10</code>
+      </div>
     </div>
   </section>
 
@@ -251,12 +352,26 @@
     <button class="filter-btn" data-cat="hoodie">Худи</button>
     <button class="filter-btn" data-cat="tee">Футболки</button>
     <button class="filter-btn" data-cat="sweatshirt">Свитшоты</button>
+    <button class="filter-btn" data-cat="pants">Штаны</button>
+    <button class="filter-btn" data-cat="other">Аксессуары</button>
   </div>
 
-  <main class="grid" id="productGrid"></main>
+  <main class="grid" id="productGrid">
+    <p style="color:var(--muted); padding:20px;">Загрузка актуального каталога...</p>
+  </main>
+
+  <!-- Блок связи с менеджером -->
+  <section class="manager-banner">
+    <div>
+      <h3>💬 Нужна помощь с выбором размера или заказом?</h3>
+      <p>Напишите нашему менеджеру в Telegram — подскажем точные замеры под ваш рост и вес.</p>
+    </div>
+    <button class="manager-link" onclick="openManager()">Написать менеджеру →</button>
+  </section>
+
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
   <!-- Корзина -->
-  <div class="overlay" id="overlay" onclick="closeAll()"></div>
   <aside class="drawer" id="cartDrawer">
     <div class="drawer-head">
       <h2>Ваш заказ</h2>
@@ -269,7 +384,7 @@
   <div class="modal" id="sizeModal">
     <div style="display:flex; justify-content:space-between; align-items:center;">
       <h3 style="font-size:17px; font-weight:800;">📏 Таблица размеров (см)</h3>
-      <button class="close-btn" onclick="toggleSizeModal(false)">✕</button>
+      <button class="close-btn" onclick="closeAll()">✕</button>
     </div>
     <table>
       <thead>
@@ -283,23 +398,113 @@
       </tbody>
     </table>
     <p style="font-size:12px; color:var(--muted); margin-top:12px;">
-      Вещи имеют свободный оверсайз-крой. Если сомневаетесь с выбором — напишите свой рост и вес в @Ateliershopbot.
+      Вещи имеют свободный оверсайз-крой. Если сомневаетесь — нажмите «💬 Менеджер» и напишите свой рост и вес.
     </p>
+  </div>
+
+  <!-- Модальное окно входа в Админку -->
+  <div class="modal" id="adminLoginModal">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:17px; font-weight:800;">🔐 Вход для владельца</h3>
+      <button class="close-btn" onclick="closeAll()">✕</button>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-top:8px;">
+      Вставь свой GitHub Token (<code>ghp_...</code>). Он сохранится только в этом браузере и позволит добавлять/удалять товары сразу на сайте и в боте.
+    </p>
+    <div class="form-group">
+      <label>GitHub Personal Access Token</label>
+      <input class="input" type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+    </div>
+    <button class="tg-pay-btn" style="background:var(--success); color:#0b0b0c;" onclick="saveAdminToken()">
+      Войти в управление магазином
+    </button>
+  </div>
+
+  <!-- Модальное окно добавления товара -->
+  <div class="modal" id="addProductModal">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:17px; font-weight:800;">➕ Новый товар (Сайт + Бот)</h3>
+      <button class="close-btn" onclick="closeAll()">✕</button>
+    </div>
+
+    <div class="form-group">
+      <label>Фотографии товара (можно выбрать сразу несколько)</label>
+      <input class="input" type="file" id="prodPhotosInput" accept="image/*" multiple />
+    </div>
+
+    <div class="form-group">
+      <label>Название вещи *</label>
+      <input class="input" id="prodNameInput" placeholder="Например: Худи ATELIER Heavyweight Black" />
+    </div>
+
+    <div class="form-group">
+      <label>Категория</label>
+      <select class="input" id="prodCatInput">
+        <option value="hoodie">Худи</option>
+        <option value="tee">Футболки</option>
+        <option value="sweatshirt">Свитшоты</option>
+        <option value="pants">Штаны</option>
+        <option value="other">Аксессуары / Другое</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Цена в рублях *</label>
+      <input class="input" type="number" id="prodPriceInput" placeholder="5900" />
+    </div>
+
+    <div class="form-group">
+      <label>Ткань / Плотность (бейдж на фото)</label>
+      <input class="input" id="prodFabricInput" placeholder="Футер 460 г/м²" value="100% хлопок" />
+    </div>
+
+    <div class="form-group">
+      <label>Размеры в наличии</label>
+      <div class="size-checks" id="prodSizesChecks">
+        <label class="size-check"><input type="checkbox" value="XS" /> XS</label>
+        <label class="size-check"><input type="checkbox" value="S" checked /> S</label>
+        <label class="size-check"><input type="checkbox" value="M" checked /> M</label>
+        <label class="size-check"><input type="checkbox" value="L" checked /> L</label>
+        <label class="size-check"><input type="checkbox" value="XL" checked /> XL</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Описание</label>
+      <textarea class="input" id="prodDescInput" rows="2" placeholder="Свободный крой, плотный хлопок..."></textarea>
+    </div>
+
+    <button class="tg-pay-btn" id="submitProdBtn" style="background:var(--success); color:#0b0b0c;" onclick="createProductOnSite()">
+      Опубликовать на сайте и в боте
+    </button>
+  </div>
+
+  <!-- Скрытый input для добавления фото к существующему товару -->
+  <input type="file" id="appendPhotoInput" accept="image/*" multiple style="display:none;" onchange="handleAppendPhotos(this)" />
+
+  <!-- Полноэкранный просмотр фото -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="close-btn" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="" />
   </div>
 
   <div class="toast" id="toast"></div>
 
   <script>
-    // Инициализация Telegram Mini App
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.expand();
     }
 
+    // ================= НАСТРОЙКИ СИНХРОНИЗАЦИИ =================
     const BOT_USERNAME = "Ateliershopbot";
+    const GH_OWNER = "arstarvoin1-design";
+    const GH_REPO = "atelier-shop";
+    const GH_BRANCH = "main";
+    const CATALOG_PATH = "catalog.json";
 
-    // ================= ТОВАРЫ ВИТРИНЫ (МОЖНО МЕНЯТЬ) =================
-    const PRODUCTS = [
+    // Стартовые товары (покажутся, если catalog.json ещё не создан)
+    const FALLBACK_PRODUCTS = [
       {
         id: 1,
         category: "hoodie",
@@ -308,7 +513,7 @@
         fabric: "Футер 460 г/м²",
         sizes: ["S", "M", "L", "XL"],
         desc: "100% хлопок диагональ, двойной объемный капюшон и спущенное плечо.",
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"
+        photos: ["https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"]
       },
       {
         id: 2,
@@ -318,7 +523,7 @@
         fabric: "Хлопок 260 г/м²",
         sizes: ["S", "M", "L", "XL"],
         desc: "Плотный джерси, не просвечивает, воротник-резинка держит форму после стирок.",
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+        photos: ["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"]
       },
       {
         id: 3,
@@ -328,37 +533,63 @@
         fabric: "Футер 420 г/м²",
         sizes: ["M", "L", "XL"],
         desc: "Свободный крой, мягкий браш внутри, минималистичная вышивка в тон.",
-        image: "https://images.unsplash.com/photo-1614975059251-992f11792b9f?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 4,
-        category: "tee",
-        name: "Футболка ATELIER Washed Charcoal",
-        price: 3200,
-        fabric: "Вареный хлопок 280 г/м²",
-        sizes: ["S", "M", "L", "XL"],
-        desc: "Эффект винтажной варки acid-wash, каждая футболка с уникальным рисунком ткани.",
-        image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80"
+        photos: ["https://images.unsplash.com/photo-1614975059251-992f11792b9f?auto=format&fit=crop&w=800&q=80"]
       }
     ];
-    // =================================================================
+    // ===========================================================
 
+    let products = [];
+    let catalogSha = null;
     let selectedSizes = {};
-    PRODUCTS.forEach(p => selectedSizes[p.id] = p.sizes[0]);
+    let photoIndexes = {};
+    let appendTargetIndex = null;
 
     let cart = JSON.parse(localStorage.getItem("atelier_cart") || "[]");
     let discountPercent = 0;
     let currentCategory = "all";
+    let adminToken = localStorage.getItem("atelier_gh_token") || "";
+
+    function utf8ToBase64(str) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = "";
+      bytes.forEach(b => bin += String.fromCharCode(b));
+      return btoa(bin);
+    }
+
+    function base64ToUtf8(b64) {
+      const bin = atob(b64.replace(/\s/g, ""));
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new TextDecoder().decode(bytes);
+    }
+
+    function parseNumericPrice(val) {
+      if (typeof val === "number") return val;
+      const digits = String(val || "0").replace(/\D/g, "");
+      return parseInt(digits, 10) || 0;
+    }
 
     function formatPrice(num) {
-      return num.toLocaleString("ru-RU") + " ₽";
+      return parseNumericPrice(num).toLocaleString("ru-RU") + " ₽";
     }
 
     function showToast(text) {
       const el = document.getElementById("toast");
       el.textContent = text;
       el.classList.add("show");
-      setTimeout(() => el.classList.remove("show"), 2200);
+      setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    function openTelegramLink(url) {
+      if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.openTelegramLink) {
+        window.Telegram.WebApp.openTelegramLink(url);
+      } else {
+        window.open(url, "_blank", "noopener");
+      }
+    }
+
+    function openManager() {
+      openTelegramLink(`https://t.me/${BOT_USERNAME}`);
     }
 
     function copyPromo() {
@@ -366,53 +597,360 @@
       showToast("Промокод ATELIER10 скопирован!");
     }
 
-    function renderProducts() {
-      const grid = document.getElementById("productGrid");
-      const items = currentCategory === "all"
-        ? PRODUCTS
-        : PRODUCTS.filter(p => p.category === currentCategory);
+    // Загрузка единого каталога с GitHub
+    async function loadCatalogFromGitHub() {
+      const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${CATALOG_PATH}?t=${Date.now()}`;
+      const headers = { "Accept": "application/vnd.github.v3+json" };
+      if (adminToken) headers["Authorization"] = `token ${adminToken}`;
 
-      grid.innerHTML = items.map(p => `
-        <article class="card">
-          <div class="card-img-wrap">
-            <span class="badge-fabric">${p.fabric}</span>
-            <img src="${p.image}" alt="${p.name}" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">${p.name}</h3>
-            <p class="card-desc">${p.desc}</p>
-            <div class="card-price">${formatPrice(p.price)}</div>
-            <div class="sizes">
-              ${p.sizes.map(sz => `
-                <button class="size-btn ${selectedSizes[p.id] === sz ? "selected" : ""}"
-                  onclick="selectSize(${p.id}, '${sz}')">${sz}</button>
-              `).join("")}
-            </div>
-            <button class="add-btn" onclick="addToCart(${p.id})">Добавить в корзину</button>
-          </div>
-        </article>
-      `).join("");
-    }
+      try {
+        const res = await fetch(url, { headers, cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          catalogSha = data.sha;
+          const rawList = JSON.parse(base64ToUtf8(data.content));
+          products = rawList.map((item, idx) => ({
+            id: item.id || (idx + 1),
+            category: item.category || "all",
+            name: item.name || "Товар ATELIER",
+            price: parseNumericPrice(item.price),
+            fabric: item.fabric || "100% хлопок",
+            sizes: Array.isArray(item.sizes) && item.sizes.length ? item.sizes : ["S", "M", "L", "XL"],
+            desc: item.desc || "",
+            photos: Array.isArray(item.photos) ? item.photos : (item.photo ? [item.photo] : (item.image ? [item.image] : []))
+          }));
+        } else {
+          catalogSha = null;
+          products = [...FALLBACK_PRODUCTS];
+        }
+      } catch (e) {
+        products = [...FALLBACK_PRODUCTS];
+      }
 
-    function selectSize(productId, size) {
-      selectedSizes[productId] = size;
+      products.forEach((p, idx) => {
+        if (!selectedSizes[idx]) selectedSizes[idx] = p.sizes[0];
+        if (photoIndexes[idx] === undefined) photoIndexes[idx] = 0;
+      });
       renderProducts();
     }
 
+    // Сохранение каталога на GitHub (синхронизирует сайт и бот)
+    async function saveCatalogToGitHub(newProducts, commitMsg = "Update catalog") {
+      if (!adminToken) throw new Error("Нет токена администратора");
+
+      // Получаем свежий sha перед записью, чтобы избежать конфликтов с ботом
+      const checkUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${CATALOG_PATH}?t=${Date.now()}`;
+      const checkRes = await fetch(checkUrl, {
+        headers: { "Authorization": `token ${adminToken}`, "Accept": "application/vnd.github.v3+json" },
+        cache: "no-store"
+      });
+      if (checkRes.ok) {
+        const checkData = await checkRes.json();
+        catalogSha = checkData.sha;
+      }
+
+      const body = {
+        message: commitMsg,
+        content: utf8ToBase64(JSON.stringify(newProducts, null, 2)),
+        branch: GH_BRANCH
+      };
+      if (catalogSha) body.sha = catalogSha;
+
+      const putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${CATALOG_PATH}`, {
+        method: "PUT",
+        headers: {
+          "Authorization": `token ${adminToken}`,
+          "Accept": "application/vnd.github.v3+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!putRes.ok) {
+        const err = await putRes.json().catch(() => ({}));
+        throw new Error(err.message || "Ошибка сохранения в GitHub");
+      }
+
+      const putData = await putRes.json();
+      catalogSha = putData.content.sha;
+      products = newProducts;
+      renderProducts();
+    }
+
+    // Сжатие фото перед отправкой в GitHub (быстрая загрузка с телефона)
+    function compressImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const maxSide = 1200;
+            let w = img.width;
+            let h = img.height;
+            if (w > maxSide || h > maxSide) {
+              if (w > h) { h = Math.round(h * maxSide / w); w = maxSide; }
+              else { w = Math.round(w * maxSide / h); h = maxSide; }
+            }
+            const canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
+            resolve(dataUrl.split(",")[1]);
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function uploadImageToGitHub(file, index) {
+      const base64Content = await compressImageFile(file);
+      const fileName = `images/site_${Date.now()}_${index}.jpg`;
+      const res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${fileName}`, {
+        method: "PUT",
+        headers: {
+          "Authorization": `token ${adminToken}`,
+          "Accept": "application/vnd.github.v3+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: `Upload ${fileName}`,
+          content: base64Content,
+          branch: GH_BRANCH
+        })
+      });
+      if (!res.ok) throw new Error("Не удалось загрузить фото");
+      return `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${fileName}`;
+    }
+
+    // Отрисовка витрины
+    function renderProducts() {
+      const grid = document.getElementById("productGrid");
+      const indexed = products.map((p, idx) => ({ p, idx }));
+      const filtered = currentCategory === "all"
+        ? indexed
+        : indexed.filter(item => item.p.category === currentCategory);
+
+      if (!filtered.length) {
+        grid.innerHTML = `<p style="color:var(--muted); padding:20px;">В этой категории пока нет товаров.</p>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(({ p, idx }) => {
+        const photos = p.photos || [];
+        const pIdx = (photoIndexes[idx] || 0) % (photos.length || 1);
+        const currentPhoto = photos[pIdx] || "";
+
+        return `
+          <article class="card">
+            <div class="card-img-wrap" onclick="${currentPhoto ? `openLightbox('${currentPhoto}')` : ''}">
+              ${p.fabric ? `<span class="badge-fabric">${p.fabric}</span>` : ""}
+              ${currentPhoto
+                ? `<img src="${currentPhoto}" alt="${p.name}" loading="lazy" />`
+                : `<div class="no-photo-box">ATELIER</div>`
+              }
+              ${photos.length > 1 ? `
+                <div class="gallery-nav" onclick="event.stopPropagation()">
+                  <button class="gal-btn" onclick="switchCardPhoto(${idx}, -1)">‹</button>
+                  <span class="gal-counter">${pIdx + 1} / ${photos.length}</span>
+                  <button class="gal-btn" onclick="switchCardPhoto(${idx}, 1)">›</button>
+                </div>
+              ` : ""}
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">${p.name}</h3>
+              <p class="card-desc">${p.desc || ""}</p>
+              <div class="card-price">${formatPrice(p.price)}</div>
+              <div class="sizes">
+                ${p.sizes.map(sz => `
+                  <button class="size-btn ${selectedSizes[idx] === sz ? "selected" : ""}"
+                    onclick="selectSize(${idx}, '${sz}')">${sz}</button>
+                `).join("")}
+              </div>
+              <button class="add-btn" onclick="addToCart(${idx})">Добавить в корзину</button>
+              ${adminToken ? `
+                <div class="card-admin-actions">
+                  <button onclick="triggerAppendPhoto(${idx})">📸 + Фото</button>
+                  <button class="del-btn" onclick="deleteProductOnSite(${idx})">🗑 Удалить</button>
+                </div>
+              ` : ""}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function switchCardPhoto(idx, delta) {
+      const total = (products[idx]?.photos || []).length;
+      if (total <= 1) return;
+      photoIndexes[idx] = ((photoIndexes[idx] || 0) + delta + total) % total;
+      renderProducts();
+    }
+
+    function selectSize(idx, size) {
+      selectedSizes[idx] = size;
+      renderProducts();
+    }
+
+    // Админ-функции на сайте
+    function updateAdminUI() {
+      const isAdm = Boolean(adminToken);
+      document.getElementById("adminBar").classList.toggle("visible", isAdm);
+      const btn = document.getElementById("adminHeaderBtn");
+      btn.classList.toggle("admin-on", isAdm);
+      btn.textContent = isAdm ? "🟢 Админ" : "⚙️ Админ";
+      renderProducts();
+    }
+
+    function handleAdminHeaderClick() {
+      if (adminToken) {
+        openModal("addProductModal");
+      } else {
+        openModal("adminLoginModal");
+      }
+    }
+
+    async function saveAdminToken() {
+      const val = (document.getElementById("ghTokenInput").value || "").trim();
+      if (!val) {
+        showToast("Вставь GitHub Token");
+        return;
+      }
+      adminToken = val;
+      localStorage.setItem("atelier_gh_token", val);
+      closeAll();
+      updateAdminUI();
+      showToast("Режим владельца включен!");
+      await loadCatalogFromGitHub();
+    }
+
+    function logoutAdmin() {
+      adminToken = "";
+      localStorage.removeItem("atelier_gh_token");
+      updateAdminUI();
+      showToast("Вы вышли из режима владельца");
+    }
+
+    async function createProductOnSite() {
+      const name = (document.getElementById("prodNameInput").value || "").trim();
+      const price = parseInt(document.getElementById("prodPriceInput").value, 10);
+      const category = document.getElementById("prodCatInput").value;
+      const fabric = (document.getElementById("prodFabricInput").value || "").trim();
+      const desc = (document.getElementById("prodDescInput").value || "").trim();
+      const files = Array.from(document.getElementById("prodPhotosInput").files || []);
+
+      const sizes = Array.from(document.querySelectorAll("#prodSizesChecks input:checked"))
+        .map(el => el.value);
+
+      if (!name || !price) {
+        showToast("Укажи название и цену товара");
+        return;
+      }
+
+      const btn = document.getElementById("submitProdBtn");
+      btn.disabled = true;
+      btn.textContent = "⏳ Загружаем фото и сохраняем...";
+
+      try {
+        const uploadedUrls = [];
+        for (let i = 0; i < files.length; i++) {
+          const url = await uploadImageToGitHub(files[i], i);
+          uploadedUrls.push(url);
+        }
+
+        const updatedList = [...products, {
+          id: Date.now(),
+          category,
+          name,
+          price,
+          fabric: fabric || "100% хлопок",
+          sizes: sizes.length ? sizes : ["S", "M", "L", "XL"],
+          desc,
+          photos: uploadedUrls
+        }];
+
+        await saveCatalogToGitHub(updatedList, `Add product: ${name}`);
+
+        // Очистка формы
+        document.getElementById("prodNameInput").value = "";
+        document.getElementById("prodPriceInput").value = "";
+        document.getElementById("prodDescInput").value = "";
+        document.getElementById("prodPhotosInput").value = "";
+
+        closeAll();
+        showToast("✅ Товар добавлен на сайт и в бот!");
+      } catch (e) {
+        showToast("Ошибка: " + e.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Опубликовать на сайте и в боте";
+      }
+    }
+
+    function triggerAppendPhoto(idx) {
+      appendTargetIndex = idx;
+      const input = document.getElementById("appendPhotoInput");
+      input.value = "";
+      input.click();
+    }
+
+    async function handleAppendPhotos(inputEl) {
+      const files = Array.from(inputEl.files || []);
+      if (!files.length || appendTargetIndex === null) return;
+
+      showToast("⏳ Загружаем новые фото...");
+      try {
+        const newUrls = [];
+        for (let i = 0; i < files.length; i++) {
+          newUrls.push(await uploadImageToGitHub(files[i], i));
+        }
+        const updatedList = products.map((item, idx) => {
+          if (idx !== appendTargetIndex) return item;
+          return { ...item, photos: [...(item.photos || []), ...newUrls] };
+        });
+        await saveCatalogToGitHub(updatedList, "Append product photos");
+        showToast(`✅ Добавлено фото: ${newUrls.length} шт.`);
+      } catch (e) {
+        showToast("Ошибка: " + e.message);
+      } finally {
+        appendTargetIndex = null;
+      }
+    }
+
+    async function deleteProductOnSite(idx) {
+      const target = products[idx];
+      if (!target) return;
+      if (!confirm(`Удалить «${target.name}» с сайта и из бота?`)) return;
+
+      showToast("⏳ Удаляем товар...");
+      try {
+        const updatedList = products.filter((_, i) => i !== idx);
+        await saveCatalogToGitHub(updatedList, `Delete product: ${target.name}`);
+        showToast("🗑 Товар удален отовсюду");
+      } catch (e) {
+        showToast("Ошибка: " + e.message);
+      }
+    }
+
+    // Корзина и оформление
     function saveCart() {
       localStorage.setItem("atelier_cart", JSON.stringify(cart));
       const count = cart.reduce((acc, item) => acc + item.qty, 0);
       document.getElementById("cartCount").textContent = count;
     }
 
-    function addToCart(productId) {
-      const product = PRODUCTS.find(p => p.id === productId);
-      const size = selectedSizes[productId];
-      const existing = cart.find(i => i.id === productId && i.size === size);
+    function addToCart(idx) {
+      const product = products[idx];
+      const size = selectedSizes[idx] || product.sizes[0];
+      const existing = cart.find(i => i.name === product.name && i.size === size);
       if (existing) {
         existing.qty += 1;
       } else {
-        cart.push({ id: product.id, name: product.name, price: product.price, size, qty: 1 });
+        cart.push({ name: product.name, price: parseNumericPrice(product.price), size, qty: 1 });
       }
       saveCart();
       showToast(`Добавлено: ${product.name} (${size})`);
@@ -476,7 +1014,7 @@
         </div>
 
         <div class="form-group">
-          <label>Ваше имя и контакт</label>
+          <label>Ваше имя и телефон / Telegram</label>
           <input class="input" id="clientName" placeholder="Например: Алексей, +7 999 000-00-00" />
         </div>
 
@@ -523,12 +1061,12 @@
         <div style="padding:10px 0;">
           <h3 style="font-size:20px; font-weight:800; margin-bottom:8px;">✅ Заказ #${orderId} сформирован!</h3>
           <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
-            Состав заказа автоматически скопирован в буфер обмена. Нажмите кнопку ниже, чтобы открыть <b>@Ateliershopbot</b>, получить ссылку/QR на оплату по СБП и вставить детали заказа в чат:
+            Состав заказа скопирован. Нажмите кнопку ниже — откроется <b>@Ateliershopbot</b> со ссылкой и QR-кодом СБП (вставьте состав заказа в чат после перехода):
           </p>
           <pre style="background:var(--surface-2); border:1px solid var(--border); padding:12px; border-radius:10px; font-size:12px; white-space:pre-wrap; margin-bottom:14px;">${orderSummary}</pre>
-          <a class="tg-pay-btn" href="${tgUrl}" target="_blank" rel="noopener">
+          <button class="tg-pay-btn" onclick="openTelegramLink('${tgUrl}')">
             📲 Перейти в @Ateliershopbot для оплаты СБП
-          </a>
+          </button>
         </div>
       `;
 
@@ -542,15 +1080,25 @@
       if (open) renderCart();
     }
 
-    function toggleSizeModal(open) {
-      document.getElementById("sizeModal").classList.toggle("open", open);
-      document.getElementById("overlay").classList.toggle("open", open);
+    function openModal(id) {
+      closeAll();
+      document.getElementById(id).classList.add("open");
+      document.getElementById("overlay").classList.add("open");
     }
 
     function closeAll() {
       document.getElementById("cartDrawer").classList.remove("open");
-      document.getElementById("sizeModal").classList.remove("open");
+      document.querySelectorAll(".modal").forEach(m => m.classList.remove("open"));
       document.getElementById("overlay").classList.remove("open");
+    }
+
+    function openLightbox(src) {
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightbox").classList.add("open");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("open");
     }
 
     document.getElementById("filters").addEventListener("click", (e) => {
@@ -562,7 +1110,8 @@
     });
 
     saveCart();
-    renderProducts();
+    updateAdminUI();
+    loadCatalogFromGitHub();
   </script>
 </body>
 </html>
