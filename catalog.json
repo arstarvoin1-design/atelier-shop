@@ -19,5 +19,22 @@
       "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/site_1795040817384_0.jpg",
       "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/site_1795040830747_0.jpg"
     ]
+  },
+  {
+    "id": 1795041004909,
+    "category": "other",
+    "name": "серго роман",
+    "price": 50,
+    "fabric": "100% хлопок",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "desc": "молодец",
+    "photos": [
+      "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/tg_1795041003_0.jpg"
+    ]
   }
 ]
