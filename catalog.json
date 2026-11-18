@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "category": "hoodie",
+    "name": "Худи ATELIER Heavyweight Black",
+    "price": 5900,
+    "fabric": "Футер 460 г/м²",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "desc": "100% хлопок диагональ, двойной объемный капюшон и спущенное плечо.",
+    "photos": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "tee",
+    "name": "Футболка ATELIER Boxy Fit White",
+    "price": 2900,
+    "fabric": "Хлопок 260 г/м²",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "desc": "Плотный джерси, не просвечивает, воротник-резинка держит форму после стирок.",
+    "photos": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+    ]
+  }
+]
