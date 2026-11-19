@@ -21,5 +21,20 @@
       "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/tg_1795076745_6.jpg",
       "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/tg_1795076746_7.jpg"
     ]
+  },
+  {
+    "id": 1795080457919,
+    "category": "other",
+    "name": "Бомбер alpha industries cwu 45",
+    "price": 7990,
+    "fabric": "100% хлопок",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "плащевка",
+    "photos": []
   }
 ]
