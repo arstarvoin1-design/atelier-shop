@@ -39,5 +39,19 @@
       "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/tg_1795041048_0.jpg",
       "https://raw.githubusercontent.com/arstarvoin1-design/atelier-shop/main/images/tg_1795041062_0.jpg"
     ]
+  },
+  {
+    "id": 1795076701001,
+    "category": "hoodie",
+    "name": "Худи Grailz project co стразами",
+    "price": 3990,
+    "fabric": "100% хлопок",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "desc": "хлопок",
+    "photos": []
   }
 ]
